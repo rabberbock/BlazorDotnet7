@@ -1,0 +1,40 @@
+﻿@using AntDesign
+
+@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Demo using <code>@@bind:after</code></h1>
+
+<div>
+    What's your name?
+</div>
+
+<div>
+    <Input @bind-Value="_name" @bind-Value:after="AfterNameSet"/>
+</div>
+
+<div>
+    Set @_count times
+</div>
+
+<div style="margin-top: 100px">
+    <LabeledInput @bind-Value="_labeledInput"/>
+</div>
+
+<div>
+    LabeledInput Value is "@_labeledInput"
+</div>
+
+
+
+@code {
+    private string _name = "";
+    private string _labeledInput = "";
+    private int _count = 0;
+
+    private void AfterNameSet()
+    {
+        _count++;
+    }
+}
